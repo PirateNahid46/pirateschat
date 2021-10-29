@@ -1,0 +1,37 @@
+.messages{
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: Garamond;
+}
+
+.my{
+    color: rgb(0, 255, 13);
+    font-size: 20px;
+    font-weight: 500;
+    font-family: Garamond;
+}
+.textbox{
+    background: #000;
+    border: none;
+    color: #fff;
+    font-family:Garamond;
+    font-size: 20px;
+    width: 100%;
+    font-weight: 500;
+    
+}
+.textbox:focus{
+    border: none;
+    outline: none;
+}
+.sub{
+    visibility:hidden;
+}
+.auth{
+    color: #fff;
+    font-family:Garamond;
+    font-size: 20px;
+    font-weight: 500;
+    visibility: visible;
+}
