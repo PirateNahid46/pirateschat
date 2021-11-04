@@ -17,6 +17,7 @@ const firebaseConfig = {
     const name = document.getElementById("namebox");
     const username = name.value;
     document.getElementById("auth").style.display = "none";
+    document.getElementById("bottom").style.visibility = "visible";
     oname = username;
     fetchChatF();
     

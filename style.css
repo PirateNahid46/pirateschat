@@ -2,20 +2,20 @@
     color: #ffffff;
     font-size: 20px;
     font-weight: 500;
-    font-family: Garamond;
+    font-family: Garamond, monospace, courier;
 }
 
 .my{
     color: rgb(0, 255, 13);
     font-size: 20px;
     font-weight: 500;
-    font-family: Garamond;
+    font-family: Garamond, monospace, courier;
 }
 .textbox{
     background: #000;
     border: none;
     color: #fff;
-    font-family:Garamond;
+    font-family:Garamond, monospace, courier;
     font-size: 20px;
     width: 100%;
     font-weight: 500;
@@ -30,8 +30,15 @@
 }
 .auth{
     color: #fff;
-    font-family:Garamond;
+    font-family:Garamond, monospace, courier;
     font-size: 20px;
     font-weight: 500;
     visibility: visible;
+}
+.bottom{
+    color: #fff;
+    font-family:Garamond, monospace, courier;
+    font-size: 20px;
+    font-weight: 500;
+    visibility: hidden;
 }
