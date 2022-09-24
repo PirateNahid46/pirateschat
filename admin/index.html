@@ -6,17 +6,7 @@
     <link rel="stylesheet" href="style.css" type="text/css">
     <title>Pirate's Chat</title>   
   </head>
-  <body bgcolor="#000" onload="Load()">    
-    <div class="auth" id="auth">
-      Enter You Name:
-      <form autocomplete="off" id="authform">
-        <input id="namebox" class="textbox" type="text">
-        <button id="subName-btn" class="sub" type="submit">Submit</button>
-      </form>
-      
-      
-      
-    </div>
+  <body onload="Load()">    
 
     <div id="chat">  
         <div id="messages" class="messages">
@@ -28,7 +18,16 @@
          
         <div id="bottom" class="bottom">
           <form autocomplete="off" id="send-message">
+            <label>
+              Name:
+            </label>
+            <input id="namebox" class="textbox" type="text">
+            <br>
+            <label>
+              Username:
+            </label>
             <input id="chat-txt" class="textbox" type="text" />
+            <br>
             <button id="chat-btn" class="sub" type="submit">Submit</button>
           </form>
 
