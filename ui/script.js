@@ -55,11 +55,11 @@ function fetchChatF(){
     const messages = snapshot.val();
     const time = Date(messages.id);
     if(messages.usr === username){
-      const msg = "<div class=\"my\">$" + messages.usr + " : " + messages.msg +"<br><div class=\"time\">"+time+"</div></div>";
+      const msg = "<div class=\"my\"> " + messages.msg +"<br><div class=\"time\">"+time+"</div></div>";
       document.getElementById("messages").innerHTML += msg;
     }
     else{
-      const msg = "<div>$" + messages.usr + " : " + messages.msg + "</div>";
+      const msg = "<div><span class=\'name\'>" + messages.usr + "</span><br> <div class=\"others\">" + messages.msg + "<br><div class=\"time\">"+time+"</div></div></div>";
       document.getElementById("messages").innerHTML += msg;
     }
     location.href="#bottom";

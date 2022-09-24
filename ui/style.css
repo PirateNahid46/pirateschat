@@ -1,22 +1,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
 
+:root{
+    --text-color: #201f1f;
+    --bg-color:#fff;
+    --backgroud-color:rgba(128, 128, 128, 0.171);
+    --btn-color:#121212;
+    --txt-size: 20px;
+    --name-color:rgba(0, 0, 0, 0.479);
+  }
+
 .messages{
-    color: #ffffff;
+    color: var(--text-color);
     font-size: 20px;
     font-weight: 500;
     font-family: 'Poppins';
 }
 
 .my{
-    color: rgb(0, 255, 13);
+    width: fit-content;
+    padding: 5px;
+    margin-left:auto;
+    margin-right:0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    color: var(--text-color);
+    background-color: #0f8;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: 'Poppins';
+    position: relative;
+}
+
+.name{
+    color:var(--name-color);
+    font-size: 10px;
+}
+.others{
+    width: fit-content;
+    padding: 5px;
+    border-radius: 10px;
+    color: var(--text-color);
+    position: relative;
+    background-color: var(--backgroud-color);
     font-size: 20px;
     font-weight: 500;
     font-family: 'Poppins';
 }
 .textbox{
-    background: #000;
+    background: rgb(255, 255, 255);
     border: none;
-    color: #fff;
+    color: var(--text-color);
     font-family:'Poppins';
     font-size: 20px;
     width: 100%;
@@ -27,6 +61,7 @@
 .time{
     font-size: 10px;
     color: bisque;
+    display: none;
 }
 .textbox:focus{
     border: none;
@@ -36,14 +71,14 @@
     visibility:hidden;
 }
 .auth{
-    color: #fff;
+    color: var(--text-color);
     font-family:'Poppins';
     font-size: 20px;
     font-weight: 500;
     visibility: visible;
 }
 .bottom{
-    color: #fff;
+    color: var(--text-color);
     font-family:'Poppins';
     font-size: 20px;
     font-weight: 500;

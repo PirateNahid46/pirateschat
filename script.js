@@ -55,7 +55,7 @@ function fetchChatF(){
     const messages = snapshot.val();
     const time = Date(messages.id);
     if(messages.usr === username){
-      const msg = "<div class=\"my\">$" + messages.usr + " : " + messages.msg +"<br><div class=\"time\">"+time+"</div></div>";
+      const msg = "<div class=\"my\">$" + messages.usr + " : " + messages.msg +"<br><div class=\"time\">"+times+"</div></div>";
       document.getElementById("messages").innerHTML += msg;
     }
     else{
