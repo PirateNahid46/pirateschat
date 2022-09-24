@@ -62,7 +62,8 @@ function fetchChatF(){
       const msg = "<div><span class=\'name\'>" + messages.usr + "</span><br> <div class=\"others\">" + messages.msg + "<br><div class=\"time\">"+time+"</div></div></div>";
       document.getElementById("messages").innerHTML += msg;
     }
-    location.href="#bottom";
+    var height = document.getElementById('messages').scrollHeight;
+    document.getElementById('chat').scrollTo(0, height);
     document.getElementById('chat-txt').focus();
   });
 
