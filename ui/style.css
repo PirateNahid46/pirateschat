@@ -14,7 +14,6 @@
   }
 
 #chat{
-    margin-left: -1px;
     color: var(--text-color);
     font-size: var(--txt-size);
     font-weight: 500;
@@ -22,8 +21,11 @@
     overflow-y: scroll;
     position: absolute;
     height: 90%;
-    width: 100%;
+    width: 99%;
     background-color: rgb(233, 233, 233);
+    margin-left:auto;
+    margin-right:-1;
+    right: 0;
 }
 
 .my{
@@ -62,7 +64,7 @@
     font-family:'Poppins';
     font-size: 20px;
     border-radius: 5px;
-    border: 1p solid #555;
+    border: none;
     width: 100%;
     font-weight: 500;
     
@@ -74,11 +76,10 @@
     display: none;
 }
 .textbox:focus{
-    border: 1p solid #555;
     outline: none;
 }
 .sub{
-    font-family: "Poppips";
+    font-family: 'Poppips';
     background-color:var(--btn-color);
     color: var(--bg-color);
     font-size: var(--txt-size);
@@ -101,6 +102,7 @@
     visibility: hidden;
     position: fixed;
     bottom: 10px;
+    right: 10px;
 }
 
 #send-message{
