@@ -13,6 +13,42 @@ const firebaseConfig = {
   var user;
   let credits = [];
 
+  let loggeduser = localStorage.getItem("loggeduser");
+  
+  
+
+let checker;
+checker = setInterval(check, 1000);
+function check(){
+  if (credits.length == 0){
+    
+    
+    
+  }else{
+    clearInterval(checker);
+    if(loggeduser!=null){
+      const username = loggeduser;
+      document.getElementById("auth").style.display = "none";
+      oname = username;
+      if(credits.includes(oname)){
+        fetchChatF();
+        document.getElementById("bottom").style.visibility = "visible";
+        laodUser(oname);
+  
+      }else{
+        alert("Sorry, You are not Authorized!");
+      }
+  
+    }
+    
+  }
+}
+
+function logout(){
+    localStorage.removeItem("loggeduser");
+    location.reload(true);
+}
+
   document.getElementById("authform").addEventListener("submit", getname);
   function getname(e){
     e.preventDefault();
@@ -53,7 +89,7 @@ function fetchChatF(){
   fetchChat.on("child_added", function (snapshot) {
     const username = user;
     const messages = snapshot.val();
-    const time = Date(messages.id);
+    const time = new Date(messages.id);
     if(messages.usr === username){
       const msg = "<div class=\"my\"> " + messages.msg +"<br><div class=\"time\">"+time+"</div></div>";
       document.getElementById("messages").innerHTML += msg;

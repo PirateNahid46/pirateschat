@@ -12,6 +12,36 @@ const firebaseConfig = {
   var oname;
   var user;
   let credits = [];
+  let loggeduser = localStorage.getItem("loggeduser");
+  
+  
+
+let checker;
+checker = setInterval(check, 1000);
+function check(){
+  if (credits.length == 0){
+    
+    
+    
+  }else{
+    clearInterval(checker);
+    if(loggeduser!=null){
+      const username = loggeduser;
+      document.getElementById("auth").style.display = "none";
+      oname = username;
+      if(credits.includes(oname)){
+        fetchChatF();
+        document.getElementById("bottom").style.visibility = "visible";
+        laodUser(oname);
+  
+      }else{
+        alert("Sorry, You are not Authorized!");
+      }
+  
+    }
+    
+  }
+}
 
   document.getElementById("authform").addEventListener("submit", getname);
   function getname(e){
@@ -20,6 +50,7 @@ const firebaseConfig = {
     const username = name.value;
     document.getElementById("auth").style.display = "none";
     oname = username;
+    localStorage.setItem("loggeduser", username);
     if(credits.includes(oname)){
       fetchChatF();
       document.getElementById("bottom").style.visibility = "visible";
@@ -28,6 +59,7 @@ const firebaseConfig = {
     }else{
       alert("Sorry, You are not Authorized!");
     }
+    
     
   }
 
@@ -40,12 +72,19 @@ function postChat(e) {
   const timestamp = Date.now();
   const chatTxt = document.getElementById("chat-txt");
   const message = chatTxt.value;
-  chatTxt.value = "";
-  db.ref("messages/" + timestamp).set({
+  if(message == "logout"){
+    localStorage.removeItem("loggeduser");
+    location.reload(true);
+  }else{
+    chatTxt.value = "";
+    db.ref("messages/" + timestamp).set({
     usr: username,
     msg: message,
     id:timestamp
   });
+
+  }
+  
 }
 
 const fetchChat = db.ref("messages/");
@@ -53,7 +92,7 @@ function fetchChatF(){
   fetchChat.on("child_added", function (snapshot) {
     const username = user;
     const messages = snapshot.val();
-    const time = Date(messages.id);
+    const time = new Date(messages.id);
     if(messages.usr === username){
       const msg = "<div class=\"my\">$" + messages.usr + " : " + messages.msg +"<br><div class=\"time\">"+time+"</div></div>";
       document.getElementById("messages").innerHTML += msg;

@@ -103,6 +103,10 @@
     position: fixed;
     bottom: 10px;
     right: 10px;
+    display: flex;
+}
+svg{
+    margin-right: 5px;
 }
 
 #send-message{
