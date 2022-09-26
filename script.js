@@ -35,7 +35,9 @@ function check(){
         laodUser(oname);
   
       }else{
+        localStorage.removeItem("loggeduser");
         alert("Sorry, You are not Authorized!");
+        
       }
   
     }
@@ -57,7 +59,9 @@ function check(){
       laodUser(oname);
 
     }else{
+      localStorage.removeItem("loggeduser");
       alert("Sorry, You are not Authorized!");
+      
     }
     
     

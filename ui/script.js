@@ -36,7 +36,9 @@ function check(){
         laodUser(oname);
   
       }else{
+        localStorage.removeItem("loggeduser");
         alert("Sorry, You are not Authorized!");
+        
       }
   
     }
@@ -56,12 +58,14 @@ function logout(){
     const username = name.value;
     document.getElementById("auth").style.display = "none";
     oname = username;
+    localStorage.setItem("loggeduser", username);
     if(credits.includes(oname)){
       fetchChatF();
       document.getElementById("bottom").style.visibility = "visible";
       laodUser(oname);
 
     }else{
+      localStorage.removeItem("loggeduser");
       alert("Sorry, You are not Authorized!");
     }
     
