@@ -68,6 +68,20 @@ function check(){
   }
 
 
+document.addEventListener('keydown', (event) => {
+  var name = event.key;
+  var code = event.code;
+  if (event.ctrlKey && name == "e") {
+    localStorage.setItem("encoded", true);
+    location.reload(true);
+    
+  } 
+  else if(event.ctrlKey && name == "d"){
+    localStorage.removeItem("encoded");
+    location.reload(true);
+    
+  }
+}, false);
 
   document.getElementById("send-message").addEventListener("submit", postChat);
 function postChat(e) {
@@ -97,19 +111,38 @@ function fetchChatF(){
     const username = user;
     const messages = snapshot.val();
     const time = new Date(messages.id);
-    if(messages.usr === username){
-      const msg = "<div class=\"my\">$" + messages.usr + " : " + messages.msg +"<br><div class=\"time\">"+time+"</div></div>";
-      document.getElementById("messages").innerHTML += msg;
+
+    if(localStorage.getItem("encoded")){
+      if(messages.usr === username){
+        const msg = "<div class=\"my\">$" + messages.usr + " : " + encode(messages.msg) +"<br><div class=\"time\">"+time+"</div></div>";
+        document.getElementById("messages").innerHTML += msg;
+      }
+      else{
+        const msg = "<div>$" + messages.usr + " : " + encode(messages.msg) +"<br><div class=\"time\">"+time+"</div></div>";
+        document.getElementById("messages").innerHTML += msg;
+      }
+
+    }else{
+      if(messages.usr === username){
+        const msg = "<div class=\"my\">$" + messages.usr + " : " + messages.msg +"<br><div class=\"time\">"+time+"</div></div>";
+        document.getElementById("messages").innerHTML += msg;
+      }
+      else{
+        const msg = "<div>$" + messages.usr + " : " + messages.msg +"<br><div class=\"time\">"+time+"</div></div>";
+        document.getElementById("messages").innerHTML += msg;
+      }
+
     }
-    else{
-      const msg = "<div>$" + messages.usr + " : " + messages.msg +"<br><div class=\"time\">"+time+"</div></div>";
-      document.getElementById("messages").innerHTML += msg;
-    }
+
+
+
+    
     location.href="#bottom";
     document.getElementById('chat-txt').focus();
   });
 
 }
+
 
 fetchCredits();
 function fetchCredits(){

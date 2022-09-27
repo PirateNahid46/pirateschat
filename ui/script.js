@@ -46,6 +46,21 @@ function check(){
   }
 }
 
+document.addEventListener('keydown', (event) => {
+  var name = event.key;
+  var code = event.code;
+  if (event.ctrlKey && name == "e") {
+    localStorage.setItem("encoded", true);
+    location.reload(true);
+    
+  } 
+  else if(event.ctrlKey && name == "d"){
+    localStorage.removeItem("encoded");
+    location.reload(true);
+    
+  }
+}, false);
+
 function logout(){
     localStorage.removeItem("loggeduser");
     location.reload(true);
@@ -94,20 +109,37 @@ function fetchChatF(){
     const username = user;
     const messages = snapshot.val();
     const time = new Date(messages.id);
-    if(messages.usr === username){
-      const msg = "<div class=\"my\"> " + messages.msg +"<br><div class=\"time\">"+time+"</div></div>";
-      document.getElementById("messages").innerHTML += msg;
+
+    if(localStorage.getItem("encoded")){
+      if(messages.usr === username){
+        const msg = "<div class=\"my\"> " + encode(messages.msg) +"<br><div class=\"time\">"+time+"</div></div>";
+        document.getElementById("messages").innerHTML += msg;
+      }
+      else{
+        const msg = "<div><span class=\'name\'>" + messages.usr + "</span><br> <div class=\"others\">" + encode(messages.msg) + "<br><div class=\"time\">"+time+"</div></div></div>";
+        document.getElementById("messages").innerHTML += msg;
+      }
+
+    }else{
+      if(messages.usr === username){
+        const msg = "<div class=\"my\"> " + messages.msg +"<br><div class=\"time\">"+time+"</div></div>";
+        document.getElementById("messages").innerHTML += msg;
+      }
+      else{
+        const msg = "<div><span class=\'name\'>" + messages.usr + "</span><br> <div class=\"others\">" + messages.msg + "<br><div class=\"time\">"+time+"</div></div></div>";
+        document.getElementById("messages").innerHTML += msg;
+      }
+
     }
-    else{
-      const msg = "<div><span class=\'name\'>" + messages.usr + "</span><br> <div class=\"others\">" + messages.msg + "<br><div class=\"time\">"+time+"</div></div></div>";
-      document.getElementById("messages").innerHTML += msg;
-    }
+    
     var height = document.getElementById('messages').scrollHeight;
     document.getElementById('chat').scrollTo(0, height);
     document.getElementById('chat-txt').focus();
   });
 
 }
+
+
 
 fetchCredits();
 function fetchCredits(){
