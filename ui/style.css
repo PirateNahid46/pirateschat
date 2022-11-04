@@ -12,6 +12,7 @@
       background-color: rgb(233, 233, 233);
       overflow: hidden;
   }
+  
 
 #chat{
     color: var(--text-color);
@@ -70,6 +71,11 @@
     
 }
 
+.top{
+    position: fixed;
+    font-family: 'Poppins';
+}
+
 .time{
     font-size: 10px;
     color: bisque;
@@ -88,11 +94,15 @@
     border-radius: 5px;
 }
 .auth{
+    width:70% ;
     color: var(--text-color);
     font-family:'Poppins';
     font-size: 20px;
     font-weight: 500;
     visibility: visible;
+    right: 0;
+    display: absolute;
+    margin-left: auto;
 }
 .bottom{
     color: var(--text-color);
@@ -106,7 +116,12 @@
     display: flex;
 }
 svg{
-    margin-right: 5px;
+    margin-right: 10px;
+}
+
+.logout{
+    display: flex;
+    justify-content: center;
 }
 
 #send-message{
