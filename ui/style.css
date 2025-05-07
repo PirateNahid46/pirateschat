@@ -1,18 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400&display=swap');
 
 :root{
-    --text-color: #201f1f;
+    --text-color: #cdd6f4;
     --bg-color:#fff;
-    --backgroud-color:rgba(128, 128, 128, 0.171);
-    --btn-color:#121212;
-    --txt-size: 18px;
+    --backgroud-color:#11111b;
+    --btn-color:#1e1e1e;
+    --txt-size: 12px;
     --name-color:rgba(0, 0, 0, 0.479);
   }
   body{
-      background-color: rgb(233, 233, 233);
+      background-color:#11111b;
       overflow: hidden;
   }
-  
 
 #chat{
     color: var(--text-color);
@@ -22,8 +21,8 @@
     overflow-y: scroll;
     position: absolute;
     height: 90%;
-    width: 70%;
-    background-color: rgb(233, 233, 233);
+    width: 99%;
+    background-color: #313244;
     margin-left:auto;
     margin-right:-1;
     right: 0;
@@ -33,12 +32,12 @@
     width: fit-content;
     padding: 5px;
     margin-left:auto;
-    margin-right:0;
+    margin-right:2px;
     margin-top: 5px;
     margin-bottom: 5px;
     border-radius: 10px;
     color: var(--text-color);
-    background-color: #0f84f6;
+    background-color: #737994;
     font-size: var(--txt-size);
     font-weight: 500;
     font-family: 'Poppins';
@@ -63,17 +62,21 @@
 .textbox{
     color: var(--text-color);
     font-family:'Poppins';
-    font-size: 20px;
-    border-radius: 5px;
+    font-size: 15px;
+    border-radius: 10px;
     border: none;
+    padding: 3px;
     width: 100%;
     font-weight: 500;
+    background-color: slategrey;
     
 }
+.textbox::placeholder{
+    color: #f4dbd6;
+}
 
-.top{
-    position: fixed;
-    font-family: 'Poppins';
+.messages{
+    padding: 6px;
 }
 
 .time{
@@ -85,29 +88,27 @@
     outline: none;
 }
 .sub{
+    padding: 10px;
     font-family: 'Poppips';
     background-color:var(--btn-color);
     color: var(--bg-color);
     font-size: var(--txt-size);
     margin-left: 5px;
     border: none;
-    border-radius: 5px;
+    border-radius: 7px;
 }
 .auth{
-    width:70% ;
     color: var(--text-color);
     font-family:'Poppins';
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 500;
     visibility: visible;
-    right: 0;
-    display: absolute;
-    margin-left: auto;
 }
 .bottom{
     color: var(--text-color);
+    background-color: var(--backgroud-color);
     font-family:'Poppins';
-    font-size: 20px;
+    font-size: 15px;
     font-weight: 500;
     visibility: hidden;
     position: fixed;
@@ -116,12 +117,7 @@
     display: flex;
 }
 svg{
-    margin-right: 10px;
-}
-
-.logout{
-    display: flex;
-    justify-content: center;
+    margin-right: 5px;
 }
 
 #send-message{
